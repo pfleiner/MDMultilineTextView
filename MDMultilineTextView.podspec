@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.license      = 'Apache License, Version 2.0'
   s.author       = { "frnde" => "mounir.dellagi@freenet.ag" }
   s.platform     = :ios, '6.0'
-  s.source       = { :git => "https://github.com/frnde/MDMultilineTextView.git", :commit => "c08f036393b354266b140fbf06928a50bb07964c" }
+  s.source       = { :git => "https://github.com/frnde/MDMultilineTextView.git", :commit => "45236b8cec6a9a30bf449894cc6e2682af3a75c1" }
   s.source_files  = 'Classes', 'Classes/**/*.{h,m}'
   s.public_header_files = 'Classes/**/*.h'
 end
