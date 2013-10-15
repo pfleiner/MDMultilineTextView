@@ -34,10 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		88493A7E180D5CE800F2D0C9 /* MultilineTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultilineTextView.h; path = ../MultilineTextView.h; sourceTree = SOURCE_ROOT; };
-		88493A7F180D5CE800F2D0C9 /* MultilineTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MultilineTextView.m; path = ../MultilineTextView.m; sourceTree = SOURCE_ROOT; };
-		88493A80180D5CE800F2D0C9 /* MultilineTextViewDelegateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultilineTextViewDelegateController.h; path = ../MultilineTextViewDelegateController.h; sourceTree = SOURCE_ROOT; };
-		88493A81180D5CE800F2D0C9 /* MultilineTextViewDelegateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MultilineTextViewDelegateController.m; path = ../MultilineTextViewDelegateController.m; sourceTree = SOURCE_ROOT; };
+		88493A7E180D5CE800F2D0C9 /* MultilineTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultilineTextView.h; path = ../Classes/MultilineTextView.h; sourceTree = SOURCE_ROOT; };
+		88493A7F180D5CE800F2D0C9 /* MultilineTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MultilineTextView.m; path = ../Classes/MultilineTextView.m; sourceTree = SOURCE_ROOT; };
+		88493A80180D5CE800F2D0C9 /* MultilineTextViewDelegateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultilineTextViewDelegateController.h; path = ../Classes/MultilineTextViewDelegateController.h; sourceTree = SOURCE_ROOT; };
+		88493A81180D5CE800F2D0C9 /* MultilineTextViewDelegateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MultilineTextViewDelegateController.m; path = ../Classes/MultilineTextViewDelegateController.m; sourceTree = SOURCE_ROOT; };
 		884A99FB180D60C900675FE4 /* MDMultilineTextView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MDMultilineTextView-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		8877DFC3180C1F0500D9ECE2 /* MDMultilineTextView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDMultilineTextView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8877DFC6180C1F0500D9ECE2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
