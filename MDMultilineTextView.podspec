@@ -13,9 +13,13 @@ Pod::Spec.new do |s|
   s.author       = { "frnde" => "mounir.dellagi@freenet.ag" }
   s.platform     = :ios, '6.0'
   s.source       = { :git => "https://github.com/frnde/MDMultilineTextView.git", :tag => "0.0.5" }
-  s.source_files  = 'Classes', 'Classes/**/*.{h,m}'
-  s.public_header_files = 'Classes/**/*.h'
+  s.default_subspec = 'Core'
 
+  s.subspec 'Core' do |ss|
+    ss.source_files  = 'Classes', 'Classes/**/*.{h,m}'
+    ss.public_header_files = 'Classes/**/*.h'
+  end
+  
   s.subspec 'Example' do |ss|
     ss.source_files = 'Example/*.*'
   end
