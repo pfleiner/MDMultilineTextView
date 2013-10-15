@@ -14,15 +14,15 @@
 @property (nonatomic, assign) CGFloat maxHeight;
 
 /** The string displayed when the text view is empty */
-@property (nonatomic) NSString *placeholder;
+@property (nonatomic, strong) NSString *placeholder;
 
 /** The text color of the placeholder */
-@property (nonatomic) UIColor *placeholderColor;
+@property (nonatomic, strong) UIColor *placeholderColor;
 
 /** The border width of the text view outline */
 @property (nonatomic, assign) CGFloat borderWidth;
 
 /** The border color of the text view outline */
-@property (nonatomic) UIColor *borderColor;
+@property (nonatomic, strong) UIColor *borderColor;
 
 @end
