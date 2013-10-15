@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MDMultilineTextView"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "A lightweight UITextView subclass that is growing and shrinking in size, has a placeholder label and uses auto layout."
 
   s.description  = <<-DESC
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.license      = 'Apache License, Version 2.0'
   s.author       = { "frnde" => "mounir.dellagi@freenet.ag" }
   s.platform     = :ios, '6.0'
-  s.source       = { :git => "https://github.com/frnde/MDMultilineTextView.git", :commit => "d74cf961a0be5e7799c755f201c9d4ad9f545e3e" }
+  s.source       = { :git => "https://github.com/frnde/MDMultilineTextView.git", :commit => "c08f036393b354266b140fbf06928a50bb07964c" }
   s.source_files  = 'Classes', 'Classes/**/*.{h,m}'
   s.public_header_files = 'Classes/**/*.h'
 end
