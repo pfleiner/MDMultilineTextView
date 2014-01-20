@@ -40,15 +40,17 @@
 {
     CGSize newContentSize;
     if ([self.text length] == 0) {
-        CGSize textSize = [self.placeholder sizeWithFont:self.font constrainedToSize:CGSizeMake(10000.0, 100000.0) lineBreakMode:NSLineBreakByClipping];
+        NSDictionary *attributes = @{NSFontAttributeName: self.font};
+        CGRect rect = [self.placeholder boundingRectWithSize:CGSizeMake(10000.0, 100000.0) options:NSStringDrawingTruncatesLastVisibleLine attributes:attributes context:nil];
+        CGSize textSize = rect.size;
         newContentSize = CGSizeMake(textSize.width, textSize.height + 16.0);
-        
         [self showPlaceholderInFrame:CGRectMake(0.0, 0.0, newContentSize.width, newContentSize.height)];
     }
     else {
-        CGSize textSize = [self.text sizeWithFont:self.font constrainedToSize:CGSizeMake(self.contentSize.width - 12.0, 100000.0) lineBreakMode:NSLineBreakByWordWrapping];
+        NSDictionary *attributes = @{NSFontAttributeName: self.font};
+        CGRect rect = [self.placeholder boundingRectWithSize:CGSizeMake(10000.0, 100000.0) options:NSStringDrawingTruncatesLastVisibleLine attributes:attributes context:nil];
+        CGSize textSize = rect.size;
         newContentSize = CGSizeMake(textSize.width, textSize.height + 16.0);
-        
         [self removePlaceholder];
     }
     return newContentSize;
