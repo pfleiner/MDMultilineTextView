@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 Mounir Dellagi. All rights reserved.
 //
 
-#import "MultilineTextViewDelegateController.h"
+#import "MDMultilineTextViewDelegateController.h"
 
-@interface MultilineTextViewDelegateController ()
+@interface MDMultilineTextViewDelegateController ()
 
 @property (nonatomic) IBOutlet NSLayoutConstraint *bottomLayoutConstraint;
 
 @end
 
-@implementation MultilineTextViewDelegateController {
+@implementation MDMultilineTextViewDelegateController {
 }
 
 #pragma mark - Keyboard Handling

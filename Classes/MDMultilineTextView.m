@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Mounir Dellagi. All rights reserved.
 //
 
-#import "MultilineTextView.h"
+#import "MDMultilineTextView.h"
 
-@interface MultilineTextView ()
+@interface MDMultilineTextView ()
 @property (nonatomic) UILabel *placeholderLabel;
 
 @end
 
-@implementation MultilineTextView {
+@implementation MDMultilineTextView {
 }
 
 #pragma mark - Init

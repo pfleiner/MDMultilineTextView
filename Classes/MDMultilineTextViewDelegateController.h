@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MultilineTextView.h"
+#import "MDMultilineTextView.h"
 
-@interface MultilineTextViewDelegateController : UIViewController <UITextViewDelegate>
+@interface MDMultilineTextViewDelegateController : UIViewController <UITextViewDelegate>
 
 /** The multiline text view */
-@property (nonatomic, weak) IBOutlet MultilineTextView *multiTextView;
+@property (nonatomic, weak) IBOutlet MDMultilineTextView *multiTextView;
 
 @end

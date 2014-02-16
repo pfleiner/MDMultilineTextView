@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MultilineTextView : UITextView
+@interface MDMultilineTextView : UITextView
 
 /** The maximum height of the text view in points */
 @property (nonatomic, assign) CGFloat maxHeight;
