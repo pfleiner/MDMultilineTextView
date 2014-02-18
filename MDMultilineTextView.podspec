@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MDMultilineTextView"
-  s.version      = "0.0.9"
+  s.version      = "1.0.2"
   s.summary      = "A lightweight UITextView subclass that is growing and shrinking in size, has a placeholder label and uses auto layout."
 
   s.description  = <<-DESC
