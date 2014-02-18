@@ -13,7 +13,13 @@
 
 @end
 
-@implementation MDMultilineTextView {
+@implementation MDMultilineTextView
+
+#pragma  Custom Gettter to update content size when set programmatically
+- (void)setText:(NSString *)text
+{
+    [super setText:text];
+    [self invalidateIntrinsicContentSize];
 }
 
 #pragma mark - Init
