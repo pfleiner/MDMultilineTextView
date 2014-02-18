@@ -54,7 +54,6 @@
     }
     else {
         NSDictionary *attributes = @{NSFontAttributeName: self.font};
-        NSLog(@"%f", self.bounds.size.width);
         CGRect rect = [self.text boundingRectWithSize:CGSizeMake(self.bounds.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
         CGSize textSize = rect.size;
         newContentSize = CGSizeMake(textSize.width, textSize.height + 16.0);
