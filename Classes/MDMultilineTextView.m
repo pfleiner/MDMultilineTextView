@@ -41,14 +41,15 @@
     CGSize newContentSize;
     if ([self.text length] == 0) {
         NSDictionary *attributes = @{NSFontAttributeName: self.font};
-        CGRect rect = [self.placeholder boundingRectWithSize:CGSizeMake(10000.0, 100000.0) options:NSStringDrawingTruncatesLastVisibleLine attributes:attributes context:nil];
+        CGRect rect = [self.placeholder boundingRectWithSize:CGSizeMake(self.bounds.size.width, CGFLOAT_MAX) options:NSStringDrawingTruncatesLastVisibleLine attributes:attributes context:nil];
         CGSize textSize = rect.size;
         newContentSize = CGSizeMake(textSize.width, textSize.height + 16.0);
         [self showPlaceholderInFrame:CGRectMake(0.0, 0.0, newContentSize.width, newContentSize.height)];
     }
     else {
         NSDictionary *attributes = @{NSFontAttributeName: self.font};
-        CGRect rect = [self.placeholder boundingRectWithSize:CGSizeMake(10000.0, 100000.0) options:NSStringDrawingTruncatesLastVisibleLine attributes:attributes context:nil];
+        NSLog(@"%f", self.bounds.size.width);
+        CGRect rect = [self.text boundingRectWithSize:CGSizeMake(self.bounds.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
         CGSize textSize = rect.size;
         newContentSize = CGSizeMake(textSize.width, textSize.height + 16.0);
         [self removePlaceholder];
