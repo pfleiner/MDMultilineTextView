@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.license      = 'Apache License, Version 2.0'
   s.author       = { "frnde" => "mounir.dellagi@freenet.ag" }
   s.platform     = :ios, '7.0'
-  s.source       = { :git => "https://github.com/frnde/MDMultilineTextView.git", :tag => "0.0.9" }
+  s.source       = { :git => "https://github.com/frnde/MDMultilineTextView.git", :tag => "1.0.2" }
   s.default_subspec = 'Core'
 
   s.subspec 'Core' do |ss|
