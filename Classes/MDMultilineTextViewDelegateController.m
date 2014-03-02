@@ -24,14 +24,12 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillShowNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         
         NSDictionary *info = [note userInfo];
-        CGSize kbSize = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+        CGSize kbSize = [info[UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
         self.bottomLayoutConstraint.constant += kbSize.height;
         
-        [UIView animateWithDuration:0.25 animations:^{
-            
-            [self.view layoutIfNeeded];
-            
-        } completion:nil];
+        [UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [self.view layoutIfNeeded];} completion:nil
+         ];
         
     }];
     
@@ -41,8 +39,8 @@
         CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
         self.bottomLayoutConstraint.constant -= kbSize.height;
         
-        [UIView animateWithDuration:0.25 animations:^{
-            [self.view layoutIfNeeded];}
+        [UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [self.view layoutIfNeeded];} completion:nil
          ];
         
     }];
@@ -56,6 +54,7 @@
         [self.multiTextView invalidateIntrinsicContentSize];
     }
     
+    [self.multiTextView scrollRectToVisible:CGRectMake(0.0, self.multiTextView.contentSize.height - 1.0f, 1.0, 1.0) animated:NO];
 }
 
 - (void)viewDidLoad
