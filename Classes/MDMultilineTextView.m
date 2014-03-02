@@ -42,14 +42,21 @@
         NSDictionary *attributes = @{NSFontAttributeName: self.font};
         CGRect rect = [self.placeholder boundingRectWithSize:CGSizeMake(self.bounds.size.width, CGFLOAT_MAX) options:NSStringDrawingTruncatesLastVisibleLine attributes:attributes context:nil];
         CGSize textSize = rect.size;
-        newContentSize = CGSizeMake(textSize.width, textSize.height + 16.0);
+        newContentSize = CGSizeMake(textSize.width, textSize.height + (2 * _verticalPadding));
         [self showPlaceholderInFrame:CGRectMake(0.0, 0.0, newContentSize.width, newContentSize.height)];
     }
     else {
+        // Hack to detect Newlines
+        NSString *str = self.text;
+        if ([self.text hasSuffix:@"\n"]) {
+            str = [self.text stringByAppendingString:@"."];
+        }
+        
+        // Calc height
         NSDictionary *attributes = @{NSFontAttributeName: self.font};
-        CGRect rect = [self.text boundingRectWithSize:CGSizeMake(self.bounds.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
+        CGRect rect = [str boundingRectWithSize:CGSizeMake(self.bounds.size.width, CGFLOAT_MAX) options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:attributes context:nil];
         CGSize textSize = rect.size;
-        newContentSize = CGSizeMake(textSize.width, textSize.height + 16.0);
+        newContentSize = CGSizeMake(textSize.width, textSize.height + (2 * _verticalPadding));
         [self removePlaceholder];
     }
     return newContentSize;
@@ -60,7 +67,7 @@
 /** Adds the placeholder label as a subview */
 - (void)showPlaceholderInFrame:(CGRect)placeholderFrame
 {
-    self.placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(4.0f, 8.0f, placeholderFrame.size.width, placeholderFrame.size.height - 16.0f)];
+    self.placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(4.0f, _verticalPadding, placeholderFrame.size.width, placeholderFrame.size.height - (2 * _verticalPadding))];
     self.placeholderLabel.text = self.placeholder;
     self.placeholderLabel.textColor  = self.placeholderColor;
     self.placeholderLabel.font = self.font;
@@ -75,6 +82,5 @@
 {
     [self.placeholderLabel removeFromSuperview];
 }
-
 
 @end
