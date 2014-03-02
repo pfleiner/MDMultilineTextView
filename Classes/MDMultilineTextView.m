@@ -29,10 +29,10 @@
     
     if (self) {
         // Default Values (can be set via properties)
-        _maxHeight = 100.0;
+        _maxHeight = 120.0;
         _placeholderColor = [UIColor grayColor];
         _placeholder = @"Message";
-        
+        _verticalPadding = 9.0;
         self.layer.borderWidth = 1.0f;
         self.layer.borderColor = [[UIColor colorWithRed:221/255.0 green:221/255.0 blue:221/255.0 alpha:1.0] CGColor];
     }

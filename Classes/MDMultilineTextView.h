@@ -25,4 +25,7 @@
 /** The border color of the text view outline */
 @property (nonatomic, strong) UIColor *borderColor;
 
+/** The border color of the text view outline */
+@property (nonatomic) CGFloat verticalPadding;
+
 @end
