@@ -54,7 +54,7 @@
         
         // Calc height
         NSDictionary *attributes = @{NSFontAttributeName: self.font};
-        CGRect rect = [str boundingRectWithSize:CGSizeMake(self.bounds.size.width, CGFLOAT_MAX) options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:attributes context:nil];
+        CGRect rect = [str boundingRectWithSize:CGSizeMake(self.bounds.size.width - 10.0, CGFLOAT_MAX) options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:attributes context:nil];
         CGSize textSize = rect.size;
         newContentSize = CGSizeMake(textSize.width, textSize.height + (2 * _verticalPadding));
         [self removePlaceholder];
