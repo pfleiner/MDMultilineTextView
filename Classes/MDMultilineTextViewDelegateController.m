@@ -15,33 +15,45 @@
 @end
 
 @implementation MDMultilineTextViewDelegateController {
+    id keyboardShowObserver;
+    id keyboardHideObserver;
 }
 
 #pragma mark - Keyboard Handling
 /** Handling the text view position relative to the keyboard */
 - (void)keyboardHandling
 {
-    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillShowNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+    keyboardShowObserver = [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillShowNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         
         NSDictionary *info = [note userInfo];
         CGSize kbSize = [info[UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
         self.bottomLayoutConstraint.constant += kbSize.height;
         
-        [UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            [self.view layoutIfNeeded];} completion:nil
-         ];
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
+        [UIView setAnimationCurve:[note.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        
+        [self.view layoutIfNeeded];
+        
+        [UIView commitAnimations];
         
     }];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillHideNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+    keyboardHideObserver = [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillHideNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         
         NSDictionary *info = [note userInfo];
         CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
         self.bottomLayoutConstraint.constant -= kbSize.height;
         
-        [UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            [self.view layoutIfNeeded];} completion:nil
-         ];
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
+        [UIView setAnimationCurve:[note.userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue]];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        
+        [self.view layoutIfNeeded];
+        
+        [UIView commitAnimations];
         
     }];
 }
@@ -57,10 +69,21 @@
     [self.multiTextView scrollRectToVisible:CGRectMake(0.0, self.multiTextView.contentSize.height - 1.0f, 1.0, 1.0) animated:NO];
 }
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
     [self keyboardHandling];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:keyboardShowObserver];
+    [center removeObserver:keyboardHideObserver];
+    
+    keyboardShowObserver = nil;
+    keyboardHideObserver = nil;
 }
 
 @end
